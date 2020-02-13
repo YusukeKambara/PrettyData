@@ -1,3 +1,16 @@
+# Readme test with html
+README.html
+CHANGELOG.html
+
+# Virtual env folder
+env/
+
+# Setting for vscode
+.vscode/
+
+# Local history files
+.history/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
