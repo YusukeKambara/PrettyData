@@ -39,3 +39,6 @@ class TestUtils(unittest.TestCase):
         assert utils.safe_cast("test", int) == None
         # Cast to [float]
         assert utils.safe_cast("test", float) == None
+        #Cast to [datetime]
+        assert utils.safe_cast("02/33/2020", datetime) == None
+        assert utils.safe_cast("test", datetime) == None
