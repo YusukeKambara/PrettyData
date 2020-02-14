@@ -1,3 +1,6 @@
+import dateutil.parser
+from datetime import datetime
+
 def safe_cast(val, cast_type, default_val=None):
     """Try to cast the argument value. If it can not be cast, return the default value.
     
@@ -12,7 +15,12 @@ def safe_cast(val, cast_type, default_val=None):
         [cast_type] -- Casted value
     """
     try:
-        return cast_type(val)
+        if cast_type in [list, tuple]:
+            return eval(val)
+        elif cast_type in [datetime]:
+            return dateutil.parser(val)
+        else
+            return cast_type(val)
     except:
         try:
             return cast_type(default_val)

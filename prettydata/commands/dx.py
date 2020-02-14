@@ -21,7 +21,8 @@ def diagnosis(file_path):
             "unique_items": len(set(df[col].to_list()))
             "castable_types": {
                 "int": None,
-                "float": None
+                "float": None,
+                "datetime": None
             }
         }
     return result
