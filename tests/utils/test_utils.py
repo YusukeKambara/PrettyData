@@ -1,5 +1,6 @@
 from os.path import basename
 import unittest
+from datetime import datetime
 from prettydata.utils import utils
 
 class TestUtils(unittest.TestCase):
@@ -22,6 +23,11 @@ class TestUtils(unittest.TestCase):
         # Cast to [float]
         assert type(utils.safe_cast("123.45", float)) == float
         assert type(utils.safe_cast("-123.00", float)) == float
+        #Cast to [datetime]
+        assert type(utils.safe_cast("02/14/2020", datetime)) == datetime
+        assert type(utils.safe_cast("2020/02/14", datetime)) == datetime
+        assert type(utils.safe_cast("2020/02/14 14:00:30", datetime)) == datetime
+        assert type(utils.safe_cast("Tue Feb 10 04:54:42 JST 2020", datetime)) == datetime
         # Cast to [str]
         assert type(utils.safe_cast("999", str)) == str
         assert type(utils.safe_cast(123, str)) == str

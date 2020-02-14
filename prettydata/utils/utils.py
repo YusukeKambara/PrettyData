@@ -18,8 +18,8 @@ def safe_cast(val, cast_type, default_val=None):
         if cast_type in [list, tuple]:
             return eval(val)
         elif cast_type in [datetime]:
-            return dateutil.parser(val)
-        else
+            return dateutil.parser.parse(val)
+        else:
             return cast_type(val)
     except:
         try:
