@@ -18,3 +18,6 @@ def safe_cast(val, cast_type, default_val=None):
             return cast_type(default_val)
         except:
             return None
+
+def judge_type(val):
+    return type()
