@@ -1,1 +1,1 @@
-from api import dx as api_dx
+from api import analyze as analyze_api

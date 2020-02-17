@@ -15,7 +15,9 @@ def safe_cast(val, cast_type, default_val=None):
         [cast_type] -- Casted value
     """
     try:
-        if cast_type in [list, tuple]:
+        if val is None:
+            return None
+        elif cast_type in [list, tuple]:
             return eval(val)
         elif cast_type in [datetime]:
             return dateutil.parser.parse(val)
@@ -28,4 +30,12 @@ def safe_cast(val, cast_type, default_val=None):
             return None
 
 def judge_type(val):
-    return type()
+    return type(
+        safe_cast(val, tuple) or
+        safe_cast(val, list) or
+        safe_cast(val, datetime) or
+        safe_cast(val, int) or
+        safe_cast(val, float) or
+        safe_cast(val, str) or
+        None
+    )

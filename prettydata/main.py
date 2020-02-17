@@ -1,7 +1,7 @@
 from pprint import pprint
 import click
 import pandas as pd
-from commands import dx as command_dx
+from commands import analyze as command_analyze
 
 pd.set_option("display.max_columns", None)
 
@@ -16,10 +16,10 @@ def cmd():
 
 @cmd.command()
 @click.argument("file_path", type=click.Path(exists=True))
-def dx(file_path):
-    """Diagnosis the data quality
+def analyze(file_path):
+    """Analyze the data quality
     """
-    df = command_dx.diagnosis(file_path)
+    df = command_analyze.analyze(file_path)
     pprint(df)
 
 if __name__ == "__main__":
