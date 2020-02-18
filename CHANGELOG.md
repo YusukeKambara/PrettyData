@@ -2,14 +2,11 @@
 
 ## 0.0.1
 
-Released on february 13, 2020
+Released on february 18, 2020
 
 ### Added
 
-* `CHANGELOG.md`
-* `__init__.py`
-* `_version.py`
-* `setup.py`
+* The feature to analyze all columns types
 
 ### Changed
 

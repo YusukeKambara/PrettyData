@@ -1,3 +1,6 @@
+import dateutil.parser
+from datetime import datetime
+
 def safe_cast(val, cast_type, default_val=None):
     """Try to cast the argument value. If it can not be cast, return the default value.
     
@@ -14,7 +17,9 @@ def safe_cast(val, cast_type, default_val=None):
     try:
         return cast_type(val)
     except:
-        try:
-            return cast_type(default_val)
-        except:
-            return None
+        return default_val
+
+def judge_type(val):
+    return type(
+        safe_cast(val, int, safe_cast(val, float, safe_cast(val, str)))
+    )
