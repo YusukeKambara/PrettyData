@@ -1,5 +1,21 @@
 # Change Log
 
+## 0.0.2
+
+Released on february 19, 2020
+
+### Added
+
+* Nothing
+
+### Changed
+
+* Changed the way of the converting to `type` to increase the performance
+
+### Removed
+
+* Nothing
+
 ## 0.0.1
 
 Released on february 18, 2020
