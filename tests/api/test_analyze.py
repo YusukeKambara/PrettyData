@@ -23,8 +23,8 @@ class TestApiAnalyze(unittest.TestCase):
         """
         df = pd.read_csv(io.StringIO(test_data))
         result = api_analyze.analyze(df)
-        assert all(["most_common_type" in result[key] for key in result.keys()])
-        assert all(["included_types" in result[key] for key in result.keys()])
+        assert all(["allow_types" in result[key] for key in result.keys()])
+        assert all(["allow_types_without_na" in result[key] for key in result.keys()])
         assert all(["loss_rate" in result[key] for key in result.keys()])
         assert all(["all_items" in result[key] for key in result.keys()])
         assert all(["unique_items" in result[key] for key in result.keys()])

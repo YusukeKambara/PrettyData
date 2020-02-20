@@ -22,8 +22,8 @@ class TestCommandsAnalyze(unittest.TestCase):
         test,2019-09-17,0098
         """
         result = commands_analyze.analyze(io.StringIO(test_data))
-        assert all(["most_common_type" in result[key] for key in result.keys()])
-        assert all(["included_types" in result[key] for key in result.keys()])
+        assert all(["allow_types" in result[key] for key in result.keys()])
+        assert all(["allow_types_without_na" in result[key] for key in result.keys()])
         assert all(["loss_rate" in result[key] for key in result.keys()])
         assert all(["all_items" in result[key] for key in result.keys()])
         assert all(["unique_items" in result[key] for key in result.keys()])
