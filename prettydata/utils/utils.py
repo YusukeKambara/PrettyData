@@ -15,11 +15,14 @@ def safe_cast(val, cast_type, default_val=None):
         [cast_type] -- Casted value
     """
     try:
-        return cast_type(val)
+        if cast_type == datetime:
+            return dateutil.parser.parse(val)
+        else:
+            return cast_type(val)
     except:
         return default_val
 
 def judge_type(val):
     return type(
-        safe_cast(val, int, safe_cast(val, float, safe_cast(val, str)))
+        safe_cast(val, int, safe_cast(val, float, safe_cast(val, datetime, safe_cast(val, str))))
     )
