@@ -1,5 +1,22 @@
 # Change Log
 
+## 0.0.3
+
+Released on february 20, 2020
+
+### Added
+
+* Nothing
+
+### Changed
+
+* Changed the way of the judgement of the column's type
+* Fixed the test module that errors have occurred
+
+### Removed
+
+* Nothing
+
 ## 0.0.2
 
 Released on february 19, 2020
