@@ -1,1 +1,1 @@
-from api import analyze as analyze_api
+from api import *

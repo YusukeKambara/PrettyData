@@ -23,11 +23,11 @@ class TestApiAnalyze(unittest.TestCase):
         """
         df = pd.read_csv(io.StringIO(test_data))
         result = api_analyze.analyze(df)
-        assert all(["allow_types" in result[key] for key in result.keys()])
-        assert all(["allow_types_without_na" in result[key] for key in result.keys()])
-        assert all(["loss_rate" in result[key] for key in result.keys()])
-        assert all(["all_items" in result[key] for key in result.keys()])
-        assert all(["unique_items" in result[key] for key in result.keys()])
+        assert "all_items" in result.keys()
+        assert all(["loss_rate" in result[key] for key in result.keys() if key != "all_items" and not key.startswith("_")])
+        assert all(["unique_items" in result[key] for key in result.keys() if key != "all_items" and not key.startswith("_")])
+        assert all(["allow_types" in result[key] for key in result.keys() if key != "all_items" and not key.startswith("_")])
+        assert all(["castable_items" in result[key] for key in result.keys() if key != "all_items" and not key.startswith("_")])
 
     def test_analyze_irregular_case(self):
         """Testing to be able to get the analyzed resutl 
