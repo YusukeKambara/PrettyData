@@ -1,5 +1,22 @@
 # Change Log
 
+## 0.0.4
+
+Released on february 21, 2020
+
+### Added
+
+* Nothing
+
+### Changed
+
+* Added the castable type's information into 'analyze' command's result
+* Adjust the test modules according to the change of this version
+
+### Removed
+
+* Nothing
+
 ## 0.0.3
 
 Released on february 20, 2020

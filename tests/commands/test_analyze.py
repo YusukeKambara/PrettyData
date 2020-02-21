@@ -22,11 +22,11 @@ class TestCommandsAnalyze(unittest.TestCase):
         test,2019-09-17,0098
         """
         result = commands_analyze.analyze(io.StringIO(test_data))
-        assert all(["allow_types" in result[key] for key in result.keys()])
-        assert all(["allow_types_without_na" in result[key] for key in result.keys()])
-        assert all(["loss_rate" in result[key] for key in result.keys()])
-        assert all(["all_items" in result[key] for key in result.keys()])
-        assert all(["unique_items" in result[key] for key in result.keys()])
+        assert "all_items" in result.keys()
+        assert all(["loss_rate" in result[key] for key in result.keys() if key != "all_items" and not key.startswith("_")])
+        assert all(["unique_items" in result[key] for key in result.keys() if key != "all_items" and not key.startswith("_")])
+        assert all(["allow_types" in result[key] for key in result.keys() if key != "all_items" and not key.startswith("_")])
+        assert all(["castable_items" in result[key] for key in result.keys() if key != "all_items" and not key.startswith("_")])
 
     def test_analyze_irregular_case(self):
         """Testing to be able to get the analyzed resutl 
